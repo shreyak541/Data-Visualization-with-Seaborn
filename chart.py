@@ -65,7 +65,7 @@ plt.ylabel('Purchase Amount ($)', fontsize=13, fontweight='bold')
 # Improve layout
 plt.tight_layout()
 
-# Save chart as PNG with exactly 512x512 pixels
-plt.savefig('chart.png', dpi=64, bbox_inches='tight')
+# Save chart as PNG with exactly 512x512 pixels (8 inches * 64 dpi = 512 pixels)
+plt.savefig('chart.png', dpi=64)
 
 print("Chart successfully generated: chart.png (512x512 pixels)")
