@@ -2,6 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 # Set random seed for reproducibility
 np.random.seed(42)
@@ -67,5 +68,12 @@ plt.tight_layout()
 
 # Save chart as PNG with exactly 512x512 pixels (8 inches * 64 dpi = 512 pixels)
 plt.savefig('chart.png', dpi=64)
+plt.close()
+
+# Verify and force resize to exactly 512x512 if needed
+img = Image.open('chart.png')
+if img.size != (512, 512):
+    img = img.resize((512, 512), Image.LANCZOS)
+    img.save('chart.png')
 
 print("Chart successfully generated: chart.png (512x512 pixels)")
